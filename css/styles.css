@@ -19,6 +19,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .bg-dark {
@@ -74,7 +75,11 @@ body {
 }
 
 .container {
-  width: 1440px;
+  /*width: 1440px;*/
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .d-flex {
@@ -115,12 +120,40 @@ body {
   gap: 40px;
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   margin-right: 76px;
 }
 
 .logo-studio-nav {
   color: var(--navyblue);
+}
+
+.desktop-contacts {
+  margin-left: auto;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.mobile-container {
+  display: flex;
+  align-items: center;
+  justify-content:space-between ;
+  padding-top: 20px 0;
+  position: relative;
+}
+
+.mobile-menu-container {
+  position: relative;
+}
+
+.mobile-menu {
+  display: none;
+ position: relative;  
 }
 
 .nav-link {
@@ -206,6 +239,7 @@ align-items: center;
   line-height: 60px; /* 107.143% */
   letter-spacing: 1.12px;
   text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .hero-btn {
@@ -246,7 +280,8 @@ align-items: center;
   opacity: 0;
 }
 
-.modal-close-btn {
+.modal-close-btn,
+.js-close-menu {
   border-radius: 100%;
   border: 1px solid rgba (0, 0, 0, 0.1);
   background-color: white;
@@ -411,6 +446,8 @@ justify-content: center;
 fill: white;
 }
 
+
+
 /* CUSTOMER STYLING */
 .customers {
   text-align: center;
@@ -418,11 +455,17 @@ fill: white;
 
 .customer-icon {
   border: 1px solid #8E8F99;
-  fill: #8E8F99;
-  padding: 169x 32px;
+  padding: 16px 0;
+  flex-basis: calc ( 100% / 2 - 30px);
+  text-align: center;
+  border-radius: 4px;
 }
 
-.customer-icon:hover,:focus {
+.customer-icon svg {
+  fill: #8E8F99;
+}
+.customer-icon:hover,
+.customer-icon:focus {
   border-color: var(--iris);
   fill: var(--iris);
 }
@@ -484,12 +527,29 @@ fill: white;
   justify-content: center;
   gap: 150px ;
   height:312px ;
-  margin-right: 650px;
+  margin-right: 450px;
  
 }
 
 .logo-studio-footer {
   color: var(--cloud);
+}
+
+.footer {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.footer .logo {
+  margin-right: 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 72px;
 }
 
 .footer-text {
@@ -551,9 +611,10 @@ fill: white;
   background: none;
   border-radius: 4px;
   padding: 10px;
-  width: 264px;
+  width:-webkit-fill-available;
   background-color: none;
-  margin-right: 24px;
+
+  margin-bottom:24px ;
 }
 
 .input-sub:placeholder-shown {
@@ -575,3 +636,125 @@ fill: white;
   fill: white;
 }
 /*END OF FOOTER STYLING*/
+
+/* CSS MEDIA QUERY */
+
+@media (min-width: 428px) {
+.container {
+  width: 428px;
+}
+}
+
+@media (min-width: 768px) {
+.mobile-nav {
+  display: none;
+}
+
+.container {
+  width: 768px;
+}
+
+.about-item,
+.team-item {
+  flex-basis: calc(100% / 2 - 30px);
+}
+
+.customer-icon {
+  flex-basis: calc(100% / 3 - 30px);
+}
+
+.footer {
+text-align: center;
+}
+
+.input-sub {
+  width: 264px;
+  margin-right: 24px;
+}
+
+@media (min-width: 1200px) {
+.display-contacts {
+  display: flex;
+  column-gap: 30px;
+}
+
+
+.container {
+width: 1200px;
+}
+
+.about-item,
+.team-item {
+  flex-basis: calc(100% / 4 - 30px);
+}
+}
+
+.customer-icon {
+  flex-basis: calc(100% / 6 - 30px);
+}
+
+.input-sub {
+  width: 264px;
+  margin-right: 24px;
+}
+
+@media (max-width: 767px) {
+ .disktop-nav {
+  display: none;
+ }
+
+ .mobile-menu.is-open {
+  transform: translateX(0);
+ }
+
+.mobile-menu {
+  display: block;
+  height: 100vh;
+  width: 100vh;
+  position: fixed;
+  background-color: var(--white)
+}
+}
+
+  .what-we-do {
+  display: none;
+  }
+
+ .about-item h3 {
+  font-size: 36px;
+  margin-bottom: 8px;
+ }
+
+ .about-item p {
+ margin-top: 0;
+ }
+
+ .about-icon {
+  display: none;
+ }
+  .footer-inner {
+    justify-content: center;
+  }
+  }
+}
+
+@media (max-width: 428px) {
+ .footer-inner {
+  justify-content: center;
+ }
+}
+
+.input-sub {
+  width: 264px;
+}
+
+@media (max-width: 427px) {
+  .hero-text {
+    font-size: 36px;
+    letter-spacing: 0.72px;
+    line-height: 1.11;
+  }
+  .about-item h3 {
+    text-align: center;
+  }
+}
